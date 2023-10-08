@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "gym_guide_app",
+			"path": "."
+		}
+	],
+	"settings": {
+		"cmake.sourceDirectory": "C:/Users/A12/Desktop/Flutter2023/gym_guide_app/linux"
+	}
+}
