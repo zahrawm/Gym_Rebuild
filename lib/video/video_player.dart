@@ -8,12 +8,9 @@ class VideoPlayerView extends StatefulWidget {
   const VideoPlayerView({
     super.key,
     required this.url,
-    required this.dataSourceType,
   });
 
   final String url;
-
-  final DataSourceType dataSourceType;
 
   @override
   State<VideoPlayerView> createState() => _VideoPlayerViewState();
@@ -27,31 +24,16 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
   @override
   void initState() {
     super.initState();
+    _videoPlayerController =
+        VideoPlayerController.networkUrl(Uri.parse(widget.url))..initialize();
 
-    switch (widget.dataSourceType) {
-      case DataSourceType.asset:
-        _videoPlayerController = VideoPlayerController.asset(widget.url);
-        break;
-      case DataSourceType.network:
-        _videoPlayerController = VideoPlayerController.network(widget.url);
-        break;
-      case DataSourceType.file:
-        _videoPlayerController = VideoPlayerController.file(File(widget.url));
-        break;
-      case DataSourceType.contentUri:
-        _videoPlayerController =
-            VideoPlayerController.contentUri(Uri.parse(widget.url));
-        break;
-    }
-
-    _videoPlayerController.initialize().then(
-          (_) => setState(
-            () => _chewieController = ChewieController(
-              videoPlayerController: _videoPlayerController,
-              aspectRatio: 16 / 9,
-            ),
-          ),
-        );
+    _chewieController = ChewieController(
+        videoPlayerController: _videoPlayerController,
+        aspectRatio: 16 / 25,
+        allowFullScreen: true,
+        errorBuilder: (context, errorMessage) => Center(
+              child: Text(errorMessage),
+            ));
   }
 
   @override
@@ -64,17 +46,31 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.dataSourceType.name.toUpperCase(),
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        const Divider(),
         AspectRatio(
-          aspectRatio: 16 / 9,
+          aspectRatio: 16 / 25,
           child: Chewie(controller: _chewieController),
         ),
+        SizedBox(
+          height: 20,
+        ),
+        Expanded(
+            child: Row(
+         
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+                onPressed: () async {
+                  await _chewieController.play();
+                },
+                child: Text('Play')),
+            TextButton(
+                onPressed: () async {
+                  await _chewieController.pause();
+                },
+                child: Text('Pause'))
+          ],
+        ))
       ],
     );
   }

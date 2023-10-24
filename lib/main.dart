@@ -6,6 +6,7 @@ import 'package:gym_guide_app/pages/exercise_detail_page.dart';
 import 'package:gym_guide_app/pages/exercise_list_page.dart';
 import 'package:gym_guide_app/pages/filter_page.dart';
 import 'package:gym_guide_app/pages/my_home_page.dart';
+import 'package:gym_guide_app/video/video_size.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,6 +65,7 @@ class _MyAppState extends State<MyApp> {
             ExerciseDetailPage(toggleFavourite: _toggleIsFavourite),
         BMICalculatorPage.routeName: (context) => const BMICalculatorPage(),
         FilterPage.routeName: (context) => const FilterPage(),
+        VideoPlayersScreen.routeName: (context) => VideoPlayersScreen()
       },
     );
   }

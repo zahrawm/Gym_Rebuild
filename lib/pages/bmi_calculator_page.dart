@@ -151,29 +151,27 @@ class _BMICalculatorPageState extends State<BMICalculatorPage> {
                 ],
               ),
               const SizedBox(
-                height: 20,
+                height: 30,
               ),
-              Expanded(
-                child: MaterialButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  onPressed: () {
-                    calculateBMI();
-                  },
-                  height: 60,
-                  minWidth: double.infinity,
-                  color: const Color(0xFF322751),
-                  child: const Text(
-                    "Calculate BMI",
-                    style: TextStyle(color: Colors.white),
-                  ),
+              MaterialButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                onPressed: () {
+                  calculateBMI();
+                },
+                height: 60,
+                minWidth: double.infinity,
+                color: const Color(0xFF322751),
+                child: const Text(
+                  "Calculate BMI",
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                "Your BMI IS : ${bmiValue.toStringAsFixed(2)}\n $message",
+                "Your BMI IS : ${bmiValue.toStringAsFixed(2)}.\n $message.",
                 style: const TextStyle(
                     color: Color(0xFF322751),
                     fontSize: 30,

@@ -3,6 +3,7 @@ import 'package:gym_guide_app/data/exercise.dart';
 import 'package:gym_guide_app/data/workout_category_list.dart';
 import 'package:gym_guide_app/pages/bmi_calculator_page.dart';
 import 'package:gym_guide_app/pages/filter_page.dart';
+import 'package:gym_guide_app/video/video_size.dart';
 import 'package:gym_guide_app/widgets/exericse_card_widget.dart';
 import 'package:gym_guide_app/widgets/workout_category_widget.dart';
 
@@ -49,6 +50,13 @@ class _MyHomePageState extends State<MyHomePage> {
               title: const Text("Filter"),
               onTap: () {
                 Navigator.of(context).pushNamed(FilterPage.routeName);
+              },
+            ),
+            const Divider(),
+            ListTile(
+              title: const Text("How to use Gym Guide"),
+              onTap: () {
+                Navigator.of(context).pushNamed(VideoPlayersScreen.routeName);
               },
             )
           ],
