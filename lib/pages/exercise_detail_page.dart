@@ -47,6 +47,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
   @override
   void dispose() {
     timer.cancel();
+    audiPlayer.dispose();
     super.dispose();
   }
 
