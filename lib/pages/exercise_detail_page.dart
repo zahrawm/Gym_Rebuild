@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:gym_guide_app/model/exercise_model.dart';
 import 'package:collection/collection.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class ExerciseDetailPage extends StatefulWidget {
   final Function(ExerciseModel) toggleFavourite;
@@ -16,15 +17,21 @@ class ExerciseDetailPage extends StatefulWidget {
 
 class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
   bool startExercise = false;
+  final audiPlayer = AudioPlayer();
   int duration = 30;
   late Timer timer;
 
+  void playAudio() async => await audiPlayer.play(AssetSource('let_go.mp3'));
+  void pauseAudio() async => await audiPlayer.pause();
+  void stopAudio() async => await audiPlayer.stop();
   start() {
+    playAudio();
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (duration > 0) {
         duration -= 1;
         setState(() {});
       } else {
+        stopAudio();
         timer.cancel();
         startExercise = false;
         setState(() {});
@@ -33,6 +40,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
   }
 
   pause() {
+    pauseAudio();
     timer.cancel();
   }
 
