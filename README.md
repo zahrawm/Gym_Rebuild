@@ -1,16 +1,13 @@
-# gym_guide_app
+# Gym_guide_app
 
-A new Flutter project.
+This is a flutter project i built. It is a gym guide app consisting of exercises, procedures for doing these exercises, BMI calculator, timer with music. The app also consists of how to use the application. 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## UI IMAGES
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img src='./ui/Screenshot_20240403_112634.jpg'>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src='./ui/Screenshot_20240403_112716.jpg'>
+
+<img src='./ui/Screenshot_20240403_112721.jpg'>
