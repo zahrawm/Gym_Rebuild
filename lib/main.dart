@@ -71,11 +71,4 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-/*
 
-keytool -genkey -v -keystore Users\User\upload-keystore.jks
-        -storetype JKS -keyalg RSA -keysize 2048 -validity 10000
-        -alias upload
-        keytool -keystore C:\Users\hp\.android\debug.keystore -list -v
-
-*/
